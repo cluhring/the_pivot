@@ -17,6 +17,7 @@ gem 'cancan'
 gem 'rmagick'
 gem 'carrierwave'
 gem 'unscoped_associations'
+gem 'jquery-slick-rails'
 gem 'simplecov', :require => false, :group => :test
 
 group :development, :test do
