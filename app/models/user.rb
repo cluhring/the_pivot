@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
 
   before_save :generate_slug
 
+  ROLES = %w[default host]
+
   def generate_slug
     self.slug = display_name.parameterize
   end
@@ -28,5 +30,9 @@ class User < ActiveRecord::Base
 
   def admin?
     false
+  end
+
+  def host?
+    true
   end
 end
