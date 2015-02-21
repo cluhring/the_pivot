@@ -1,7 +1,7 @@
 class Reservation < ActiveRecord::Base
   validates :user_id, presence: true
-  has_many :reservation_listings
-  has_many :listings, through: :reservation_listings
+  has_many :reservations_listings
+  has_many :listings, through: :reservations_listings
   belongs_to :user
   scope :ordered, -> { where(status: "ordered") }
   scope :completed, -> { where(status: "completed") }
