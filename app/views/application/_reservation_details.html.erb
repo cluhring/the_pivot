@@ -20,9 +20,6 @@
 <div id="item-quantity">
   Quantity: <%= reservation_listing.quantity %>
 </div>
-<div id="item-subtotal">
-  Subtotal: <%= number_to_currency reservation_listing.subtotal(reservation_listing.price, reservation_listing.quantity) %>
-</div><br>
 <% end %>
 
 <div id="item-total">

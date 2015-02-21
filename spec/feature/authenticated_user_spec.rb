@@ -164,9 +164,6 @@ describe "an authenticated user" do
     within("#item-price") do
       expect(page).to have_content("$10.00")
     end
-    within("#item-subtotal") do
-      expect(page).to have_content("$10.00")
-    end
     within("#item-total") do
       expect(page).to have_content("$10.00")
     end
@@ -218,12 +215,9 @@ describe "an authenticated user" do
   #     click_link_or_button "Checkout"
   #   end
   #
-  #   it "items with quantity ordered and line-item subtotals" do
+  #   it "items with quantity ordered" do
   #     within("#item-quantity") do
   #       expect(page).to have_content("1")
-  #     end
-  #     within("#item-subtotal") do
-  #       expect(page).to have_content("$10.00")
   #     end
   #   end
   #
