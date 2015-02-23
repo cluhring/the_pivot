@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   has_many :listing_images, :through => :listings
   has_many :orders
 
-  mount_uploader :image, ListingImageUploader
+  mount_uploader :image, UserUploader
 
   before_save :generate_slug
 
