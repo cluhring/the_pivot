@@ -17,7 +17,7 @@ gem 'rmagick'
 gem 'carrierwave'
 gem 'unscoped_associations'
 gem 'simplecov', :require => false, :group => :test
-gem "paperclip", "~> 4.2"
+# gem "paperclip", "~> 4.2"
 gem 'font-awesome-less'
 gem "twitter-bootstrap-rails"
 gem 'bootstrap_form'
