@@ -28,6 +28,8 @@ gem 'factory_girl_rails', :group => :test
 gem 'cancancan', '~> 1.10'
 gem 'fog'
 gem 'mandrill-api', '~> 1.0.53'
+gem 'activeadmin', github: 'activeadmin'
+gem 'devise'
 
 group :development, :test do
   gem 'poltergeist'
