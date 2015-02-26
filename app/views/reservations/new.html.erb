@@ -21,12 +21,6 @@
         <td><%= @dates[:start_date] %></td>
         <td><%= @dates[:end_date] %></td>
         <td><%= number_to_currency listing.nightly_rate %></td>
-        <td>
-          <%#= form_tag '/notification' do %>
-            <%= text_field_tag :email %>
-            <%= submit_tag "Test It" %>
-          <%# end %>
-        </td>
 
         <td>
           <div id="checkout">
@@ -41,13 +35,4 @@
       </tr>
   <% end %>
 </table>
-<% end %>
-
-<h2>Send a test emal.</h2>
-
-<% if current_user %>
-    <%= form_tag '/notification' do %>
-      Your Test Email: <%= text_field_tag :email %>
-    <%= submit_tag "Test It" %>
-  <% end %>
 <% end %>
