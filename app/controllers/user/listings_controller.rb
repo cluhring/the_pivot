@@ -6,10 +6,6 @@ class User::ListingsController < ApplicationController
     @remaining_images = @listing_images[1..-1]
   end
 
-  def edit_index
-    @listings = Listing.where(user_id: current_user.id)
-  end
-
   def new
     @listing = current_user.listings.new
     @listing_image = @listing.listing_images.build
@@ -39,12 +35,12 @@ class User::ListingsController < ApplicationController
 
   def update
     @listing = current_user.listings.find(params[:id])
-     if params["listing_images"]
-       params["listing_images"]["images"].each do |i|
-       @listing.listing_images.build(image: i)
-     end
-   end
-   if @listing.update_attributes(listing_params)
+    if params["listing_images"]
+      params["listing_images"]["images"].each do |i|
+        @listing.listing_images.build(image: i)
+      end
+    end
+    if @listing.update_attributes(listing_params)
       redirect_to user_listing_path(current_user.slug, @listing.id)
     else
       render :edit
@@ -61,17 +57,17 @@ class User::ListingsController < ApplicationController
 
   def listing_params
     params.require(:listing).permit(:title,
-    :description,
-    :nightly_rate,
-    :category_id,
-    :max_guests,
-    :address1,
-    :address2,
-    :city,
-    :state,
-    :zip,
-    :shared_bathroom,
-    listing_images_attributes: [:id,
-      :listing_id, :image, :_destroy])
-    end
+                                    :description,
+                                    :nightly_rate,
+                                    :category_id,
+                                    :max_guests,
+                                    :address1,
+                                    :address2,
+                                    :city,
+                                    :state,
+                                    :zip,
+                                    :shared_bathroom,
+                                    listing_images_attributes: [:id,
+                                                                :listing_id, :image, :_destroy])
   end
+end
