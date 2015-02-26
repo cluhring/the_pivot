@@ -92,11 +92,11 @@
       L.marker([38.6226441, -90.1928125]).bindPopup('Wizard of Oz House').addTo(stlouis);
 
       var overlays = {
+        "Washington": washingtons,
         "Denver": denvers,
         "New York": newyorks,
         "Seattle": seattles,
         "San Francisco": sanfranciscos,
-        "Washington": washingtons,
         "St Louis": stlouis
       };
       L.control.layers(overlays).addTo(map);
@@ -106,7 +106,7 @@
       $(document).ready(function(){
         $('.leaflet-control-layers-selector').click(function(){
           if($('.leaflet-control-layers-selector').prop('checked') === true)
-          map.setView(new L.LatLng(39.674216, -104.924942), 10)
+          map.setView(new L.LatLng(38.92, -77.03), 11)
         })
 
         // $('.leaflet-control-layers-selector ~ span:second').click(function(){
