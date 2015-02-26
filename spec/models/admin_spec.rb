@@ -49,4 +49,12 @@ RSpec.describe Admin, type: :model do
                                password: "password")
     expect(invalid_admin2).to_not be_valid
   end
+
+  it "is an admin" do
+    admin = Admin.new(first_name: "First",
+                      last_name: "Last",
+                      email: "kit@kit.com",
+                      password: "password")
+    expect(admin.admin?).to eq(true)
+  end
 end
