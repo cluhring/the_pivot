@@ -30,3 +30,86 @@
   </ul>
 </div>
 </div>
+<div id='map' class="col-lg-12 user-listing-show">
+  <script type="text/javascript">
+  L.mapbox.accessToken = 'pk.eyJ1IjoiY2x1aHJpbmciLCJhIjoiNWF2Z1l6ZyJ9.8peAq7kTQyvXShlVv1K82w';
+  var map = L.mapbox.map('map', 'cluhring.l1b0862b');
+  map.locate({setView: true, maxZoom: 16});
+
+  function onLocationFound(e) {
+    var radius = e.accuracy / 2;
+
+    L.marker(e.latlng).addTo(map)
+    .bindPopup("You are within " + radius + " meters from this point").openPopup();
+
+    L.circle(e.latlng, radius).addTo(map);
+  }
+
+  map.on('locationfound', onLocationFound);
+
+  function onLocationError(e) {
+    alert(e.message);
+  }
+
+  map.on('locationerror', onLocationError);
+
+  var denvers = new L.LayerGroup();
+  L.marker([39.674216, -104.924942]).bindPopup("Lydia's House").addTo(denvers),
+  L.marker([39.6710978, -105.107292]).bindPopup('House on Haunted Hill').addTo(denvers),
+  L.marker([39.7934098, -104.863788]).bindPopup('Denver B&B').addTo(denvers);
+  L.marker([39.7234098, -104.963788]).bindPopup('Denver Love Shack').addTo(denvers);
+  L.marker([39.68234098, -104.503788]).bindPopup('Denver Mountain Retreat').addTo(denvers);
+
+  var newyorks = new L.LayerGroup();
+  L.marker([40.624944, -74.131798]).bindPopup('Brooklyn, Brookly, we go hard').addTo(newyorks),
+  L.marker([40.7161323, -73.987091]).bindPopup('Manhattan Apt').addTo(newyorks),
+  L.marker([40.7771743, -73.959137]).bindPopup('Big Apple Apt').addTo(newyorks);
+
+  var seattles = new L.LayerGroup();
+  L.marker([47.614519, -122.326798]).bindPopup('Rain City, USA Condo').addTo(seattles),
+  L.marker([47.631634, -122.36908]).bindPopup('Pikes Place Market Bungalo').addTo(seattles),
+  L.marker([47.5822069, -122.400668]).bindPopup('Mt Rainier Cabin').addTo(seattles);
+
+  var sanfranciscos = new L.LayerGroup();
+  L.marker([37.7702676, -122.423866]).bindPopup('Haight-Ashbury Hostel').addTo(sanfranciscos),
+  L.marker([37.7638552, -122.403458]).bindPopup('Golden Gate Escape').addTo(sanfranciscos),
+  L.marker([37.738628, -122.47216]).bindPopup('Full House').addTo(sanfranciscos);
+
+  var washingtons = new L.LayerGroup();
+  L.marker([38.9149646, -77.095848]).bindPopup('Condo on the Mall').addTo(washingtons),
+  L.marker([38.9082124, -77.045082]).bindPopup('Capital Hill House').addTo(washingtons),
+  L.marker([38.9126018, -77.059799]).bindPopup('Tidal Basin Retreat').addTo(washingtons),
+  L.marker([38.8977332, -77.03653]).bindPopup('Lincoln Bedroom').addTo(washingtons),
+  L.marker([38.810551, -77.075218]).bindPopup('Cherry Blossom B&B').addTo(washingtons),
+  L.marker([38.896648, -77.025978]).bindPopup('Private Ford Theatre Balcony Suite').addTo(washingtons),
+  L.marker([38.893607, -77.014652]).bindPopup('House of Cards').addTo(washingtons),
+  L.marker([38.8955911, -77.0317614]).bindPopup('The West Wing').addTo(washingtons);
+
+  var stlouis = new L.LayerGroup();
+  L.marker([38.586227, -90.383352]).bindPopup('Gateway to the West').addTo(stlouis),
+  L.marker([38.6226441, -90.1928125]).bindPopup('Wizard of Oz House').addTo(stlouis);
+
+  var overlays = {
+    "Denver": denvers,
+    "New York": newyorks,
+    "Seattle": seattles,
+    "San Francisco": sanfranciscos,
+    "Washington": washingtons,
+    "St Louis": stlouis
+  };
+  L.control.layers(overlays).addTo(map);
+  // map.fitBounds(markers.getBounds().pad(0.5));
+  </script>
+  <script charset="utf-8">
+    $(document).ready(function(){
+      $('.leaflet-control-layers-selector').click(function(){
+        if($('.leaflet-control-layers-selector').prop('checked') === true)
+        map.setView(new L.LatLng(39.674216, -104.924942), 10)
+      })
+
+      $('.leaflet-control-layers-selector ~ span:second').click(function(){
+        if($('.leaflet-control-layers-selector ~ span:second').is(':checked') === true)
+        map.setView(new L.LatLng(42.674216, -105.924942), 10)
+      })
+    });
+  </script>
