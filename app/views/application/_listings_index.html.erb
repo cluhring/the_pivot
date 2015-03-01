@@ -102,24 +102,12 @@
         "St Louis": stlouis
       };
       L.control.layers(overlays).addTo(map);
-      // map.fitBounds(markers.getBounds().pad(0.5));
+
     </script>
     <script charset="utf-8">
       $(document).ready(function(){
 
         $("div.mappy").height( $(".col-lg-6").height() );
-
-        // $("#aa").click(function(){
-        //   if($(this).text()==='Close Map'){
-        //     $('div.mappy').fadeToggle();
-        //   $('.col-lg-6').animate({width:'100%'},'slow')
-        //     $(this).text('Show Map');
-        //   }else{
-        //     $('div.mappy').fadeToggle();
-        //   $('.col-lg-6').animate({width: '50%'}, 'slow')
-        //     $(this).text('Close Map');
-        //   }
-        // });
 
         $("#aa").click(function(){
           if($(this).text()==='Close Map'){
