@@ -189,15 +189,16 @@ a {
   margin-right: 20px;
 }
 
-#aa {
-  align: center;
+.wrapper {
+  text-align: center;
 }
 
 .mappy {
   float: right;
   width: 600px;
   top: 1px;
-  padding-right: 100px;
+  min-height: 350px;
+  padding-right: 10px;
   padding-top: 20px;
   padding-left: 20px;
   // display: none;

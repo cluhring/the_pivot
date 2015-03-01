@@ -1,4 +1,6 @@
-<button id="aa">Close Map</button
+<div class="wrapper">
+<button id="aa" class="btn btn-default">Close Map</button>
+</div>
 <div class="row listings-index">
   <div closs= "row">
     <div class="col-lg-6">
@@ -107,13 +109,25 @@
 
         $("div.mappy").height( $(".col-lg-6").height() );
 
+        // $("#aa").click(function(){
+        //   if($(this).text()==='Close Map'){
+        //     $('div.mappy').fadeToggle();
+        //   $('.col-lg-6').animate({width:'100%'},'slow')
+        //     $(this).text('Show Map');
+        //   }else{
+        //     $('div.mappy').fadeToggle();
+        //   $('.col-lg-6').animate({width: '50%'}, 'slow')
+        //     $(this).text('Close Map');
+        //   }
+        // });
+
         $("#aa").click(function(){
           if($(this).text()==='Close Map'){
-            $('div.mappy').fadeToggle();
-          $('.col-lg-6').animate({width:'120%'},'slow')
+            $('div.mappy').hide();
+          $('.col-lg-6').animate({width:'100%'},'slow')
             $(this).text('Show Map');
           }else{
-            $('div.mappy').fadeToggle();
+            $('div.mappy').show();
           $('.col-lg-6').animate({width: '50%'}, 'slow')
             $(this).text('Close Map');
           }
@@ -131,7 +145,6 @@
         // })
       });
     </script>
-      </div>
     </div>
   </div>
 </div>
