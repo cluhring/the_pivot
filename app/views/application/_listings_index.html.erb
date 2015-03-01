@@ -1,5 +1,6 @@
+<button id="aa">Close Map</button
 <div class="row listings-index">
-  <div class= "row">
+  <div closs= "row">
     <div class="col-lg-6">
       <ul class="slides">
         <% listings.each do |listing| %>
@@ -31,12 +32,11 @@
       </ul>
       </div>
     </div>
-    <div id='col-lg-6 map' >
       <div id='map' class="mappy container"></div>
       <script>
       L.mapbox.accessToken = 'pk.eyJ1IjoiY2x1aHJpbmciLCJhIjoiNWF2Z1l6ZyJ9.8peAq7kTQyvXShlVv1K82w';
       var map = L.mapbox.map('map', 'cluhring.l1b0862b');
-      map.locate({setView: true, maxZoom: 16});
+      map.locate({setView: true, maxZoom: 11});
 
       function onLocationFound(e) {
         var radius = e.accuracy / 2;
@@ -104,18 +104,33 @@
     </script>
     <script charset="utf-8">
       $(document).ready(function(){
+
+        $("div.mappy").height( $(".col-lg-6").height() );
+
+        $("#aa").click(function(){
+          if($(this).text()==='Close Map'){
+            $('div.mappy').fadeToggle();
+          $('.col-lg-6').animate({width:'120%'},'slow')
+            $(this).text('Show Map');
+          }else{
+            $('div.mappy').fadeToggle();
+          $('.col-lg-6').animate({width: '50%'}, 'slow')
+            $(this).text('Close Map');
+          }
+        });
+
         $('.leaflet-control-layers-selector').click(function(){
           if($('.leaflet-control-layers-selector').prop('checked') === true)
           map.setView(new L.LatLng(38.92, -77.03), 11)
         })
 
-        // $('.leaflet-control-layers-selector ~ span:second').click(function(){
-        //   if($('.leaflet-control-layers-selector ~ span:second').is(':checked') === true)
-        //   map.setView(new L.LatLng(42.674216, -105.924942), 10)
+        // $(this).click(function(){
+        //   $(this).prop('checked', true);
+        //   // if($(this).prop('checked') === true)
+        //   map.setView(new L.LatLng(37.75, -122.42), 10)
         // })
       });
     </script>
-
       </div>
     </div>
   </div>
