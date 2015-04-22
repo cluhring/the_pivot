@@ -1,7 +1,7 @@
 body {
   font-family: 'Ubuntu', sans-serif;
   font-weight: bold;
-  background: url(/assets/blizzard.png) repeat;
+  background: url(/assets/images/blizzard.png) repeat;
   margin-top: 0;
 }
 
@@ -148,10 +148,10 @@ a {
 }
 
 .profile-header {
-    background-color: white;
-    padding-top: 60px;
-    padding-left: 50px;
-    padding-bottom: 40px;
+  background-color: white;
+  padding-top: 60px;
+  padding-left: 50px;
+  padding-bottom: 40px;
 }
 
 .listing-hero-image {
@@ -184,9 +184,24 @@ a {
 
 .listing-slide {
   margin-top: 20px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   margin-left: 20px;
   margin-right: 20px;
+}
+
+.wrapper {
+  text-align: center;
+}
+
+.mappy {
+  float: right;
+  width: 600px;
+  top: 1px;
+  min-height: 350px;
+  padding-right: 10px;
+  padding-top: 20px;
+  padding-left: 20px;
+  // display: none;
 }
 
 .d-hover {
@@ -324,7 +339,7 @@ ul, menu, dir {
 }
 
 .profile-header {
-  background: linear-gradient(rgba(240, 240, 230, 0.6), rgba(255, 255, 255, 0.6)), url(/assets/form-pattern.png) repeat;
+  background: linear-gradient(rgba(240, 240, 230, 0.6), rgba(255, 255, 255, 0.6)), url(/assets/images/form-pattern.png) repeat;
 }
 
 .user-show-name {
@@ -342,7 +357,7 @@ font-size: 40px;
   height: 240px;
 }
 
-#map {
+#map_1 {
   float: right;
   height: 340px;
 }
