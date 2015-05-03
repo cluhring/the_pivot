@@ -37,8 +37,10 @@
       <div id='map' class="mappy container"></div>
       <script>
       L.mapbox.accessToken = 'pk.eyJ1IjoiY2x1aHJpbmciLCJhIjoiNWF2Z1l6ZyJ9.8peAq7kTQyvXShlVv1K82w';
-      var map = L.mapbox.map('map', 'cluhring.l1b0862b');
+      var map = L.mapbox.map('map', 'cluhring.lal7c6c3');
       map.locate({setView: true, maxZoom: 11});
+
+      var myLayer = L.mapbox.featureLayer().addTo(map);
 
       function onLocationFound(e) {
         var radius = e.accuracy / 2;
@@ -54,6 +56,40 @@
       function onLocationError(e) {
         alert(e.message);
       }
+
+      var geojsonFeatures = [
+        <% listings.each do |listing| %>
+          {
+          "type": "Feature",
+          "properties": {
+            "url":"<%= request.env['HTTP_HOST']%>/<%= listing.user.slug %>/listings/<%= listing.id %>",
+            "marker-symbol":"warehouse",
+            "marker-size":"medium",
+            "marker-color":"#ff0000",
+            "stationDetails": "<%= listing.title %><br><%= listing.full_address %>"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              <%= listing.longitude %>,
+              <%= listing.latitude %>
+              ]
+          }
+        },
+        <% end %>
+      ];
+
+      myLayer.on('layeradd', function(e) {
+        var marker = e.layer,
+          feature = marker.feature;
+
+        var popupContent =  '<a class="popup" href="http://' +
+          feature.properties.url + '">' +
+          feature.properties.stationDetails + '</a>';
+          marker.bindPopup(popupContent);
+      });
+
+      myLayer.setGeoJSON(geojsonFeatures);
 
       map.on('locationerror', onLocationError);
 

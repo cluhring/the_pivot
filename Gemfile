@@ -29,6 +29,7 @@ gem 'cancancan', '~> 1.10'
 gem 'fog'
 gem 'mandrill-api', '~> 1.0.53'
 gem 'sidekiq'
+gem 'geocoder'
 
 group :development, :test do
   gem 'poltergeist'

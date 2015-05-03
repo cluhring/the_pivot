@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150222060531) do
+ActiveRecord::Schema.define(version: 20150502153918) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,8 @@ ActiveRecord::Schema.define(version: 20150222060531) do
     t.boolean  "shared_bathroom"
     t.integer  "user_id"
     t.json     "images"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "reservations", force: :cascade do |t|

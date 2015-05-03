@@ -291,7 +291,7 @@ ul, menu, dir {
 #networks {
   width: 100%;
   height: 100%;
-  margin-top: 200px;
+  // margin-top: 200px;
 }
 
 #networks i {
@@ -357,18 +357,9 @@ font-size: 40px;
   height: 240px;
 }
 
-#map_1 {
+#map {
   float: right;
-  height: 340px;
-}
-
-.directions-hide {
-  display: none;
-}
-
-#route-narrative {
-  margin-top: 50px;
-  padding: 20px;
+  height: 510px;
 }
 
 // /* =========================
