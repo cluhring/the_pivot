@@ -1,7 +1,7 @@
 class Listing < ActiveRecord::Base
   geocoded_by :full_address
   after_validation :geocode
-  after_initialize :save_address
+  # after_initialize :save_address
   validates :title, :description, :category_id, :max_guests,
             :nightly_rate, :address1, :city, :state, :zip,
             :user_id, presence: true
@@ -32,9 +32,9 @@ class Listing < ActiveRecord::Base
     end
   end
 
-  def save_address
-    if latitude == nil
-      geocode
-    end
-  end
+  # def save_address
+  #   if latitude == nil
+  #     geocode
+  #   end
+  # end
 end
