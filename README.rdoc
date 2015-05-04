@@ -1,28 +1,36 @@
-== README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## The Pivot || HubStub
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+*This three week group Ruby on Rails project was a pivot from a food ordering site into a space listing website with hosts and guests. It featured a session based booking requests, Administrative Dashboard, and filter based queries.*
+
+This project is for the third module at the Turing School of Software and
+Design.
+
+Full project specifications are available here:
+http://tutorials.jumpstartlab.com/projects/the_pivot.html
+
+Lydia Shafer: https://github.com/ScottCrawford03
+
+Chris Luhring: https://github.com/cluhring
+
+Kit Pearson: https://github.com/kpearson
+
+Bryce Holocomb: https://github.com/bryceholcomb
+
+#setup
+bundle
+rake db:setup
+
+#Notes
+* A User becomes a host once a space is listed. In order to have access to the administrative dashboard, you must post a listing.
+* In Order to see a user profile you must sign up as a user.
+
+#Tests
+*To run a test: 'rspec'
+
+### Here's what you'll need to do after pulling to get it working on heroku
+* `bundle install`
+* `git push heroku master`
+* `heroku pg:reset`
+* `heroku run rake db:schema:load db:seed`
+* `heroku open`
