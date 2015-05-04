@@ -32,10 +32,10 @@ class Listing < ActiveRecord::Base
     end
   end
 
-  def save_address
-    if latitude == nil
-      geocode
-      save
-    end
-  end
+  # def save_address
+  #   if latitude == nil
+  #     geocode
+  #     save
+  #   end
+  # end
 end
