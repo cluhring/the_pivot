@@ -35,7 +35,7 @@ class Listing < ActiveRecord::Base
   def save_address
     if latitude == nil
       geocode
-      Listing.save
+      save
     end
   end
 end
